@@ -19,7 +19,7 @@
    * **技術**: 事前学習済みの埋め込みモデル（BERT, CLIP等）を基盤とする。  
 2. **SSDコアエンジン（具材）**:  
    * **役割**: 意味圧ベクトル p を受け取り、SSDの核心的力学である\*\*「整合」**と**「跳躍」\*\*のサイクルを回す思考エンジン。内部状態（未処理圧 E、整合慣性 κ、探索温度 T など）に基づき、最適化と創造的思考を実行し、**反応ベクトル j** を出力する。  
-   * **技術**: 整合跳躍数理APIモデル [整合跳ayet数理APIモデル.md](hermanndegner/structural-subjectivity-dynamics/Structural-Subjectivity-Dynamics-af6352bac3ef42c7e7b11cc5eea0f9ee0c1bc6b6/数理モデル/整合跳ayet数理APIモデル.md) に基づく、動的ネットワークと確率的状態遷移を管理するカスタム実装。  
+   * **技術**: 整合跳躍数理APIモデル [整合跳躍数理APIモデル.md](https://github.com/HermannDegner/Structural-Subjectivity-Dynamics/blob/main/%E6%95%B0%E7%90%86%E3%83%A2%E3%83%87%E3%83%AB/%E6%95%B4%E5%90%88%E8%B7%B3%E8%BA%8D%E6%95%B0%E7%90%86API%E3%83%A2%E3%83%87%E3%83%AB.md) に基づく、動的ネットワークと確率的状態遷移を管理するカスタム実装。  
 3. **出力デコーダ（上のパン）**:  
    * **役割**: SSDコアから出力された抽象的な反応ベクトル j を、人間が理解できる具体的なコンテンツ（文章、デザイン案、音楽など）へと「再翻訳」する。  
    * **技術**: 生成モデル（GPT, Stable Diffusion等）を基盤とする。
@@ -39,13 +39,13 @@
 
 #### **3.2. SSDコアエンジン：動的思考ネットワーク**
 
-* **機能**: 整合跳躍数理APIモデルのStep()関数を中核とし、入力された意味圧ベクトル群 (p\_upper等) を処理する [整合跳ayet数理APIモデル.md](hermanndegner/structural-subjectivity-dynamics/Structural-Subjectivity-Dynamics-af6352bac3ef42c7e7b11cc5eea0f9ee0c1bc6b6/数理モデル/整合跳ayet数理APIモデル.md)。
+* **機能**: 整合跳躍数理APIモデルのStep()関数を中核とし、入力された意味圧ベクトル群 (p_upper等) を処理する [整合跳躍数理APIモデル.md](https://github.com/HermannDegner/Structural-Subjectivity-Dynamics/blob/main/%E6%95%B0%E7%90%86%E3%83%A2%E3%83%87%E3%83%AB/%E6%95%B4%E5%90%88%E8%B7%B3%E8%BA%8D%E6%95%B0%E7%90%86API%E3%83%A2%E3%83%87%E3%83%AB.md)。
   1. **整合**: 既存の知識ネットワーク（整合慣性 κ）を用いて、最も効率的な反応ベクトル j を計算する。  
   2. **熱蓄積**: 整合しきれない矛盾（例: p\_upperとp\_coreが対立する場合）は、未処理圧 E として蓄積される。  
   3. **跳躍**: Eが臨界点を超えると、DLエンコーダが生成した潜在空間（概念地図）を参照し、創造的な新しい接続をネットワークに追加する。  
 * **実装**:  
   * 内部ネットワークは、グラフデータベースまたはテンソルで表現された動的な隣接行列として実装する。  
-  * 状態遷移（整合モード ↔ 跳躍モード）は、JumpRate()関数に基づく確率的トリガーで管理する [整合跳ayet数理APIモデル.md](hermanndegner/structural-subjectivity-dynamics/Structural-Subjectivity-Dynamics-af6352bac3ef42c7e7b11cc5eea0f9ee0c1bc6b6/数理モデル/整合跳ayet数理APIモデル.md)。
+  * 状態遷移（整合モード ↔ 跳躍モード）は、JumpRate()関数に基づく確率的トリガーで管理する [整合跳躍数理APIモデル.md](https://github.com/HermannDegner/Structural-Subjectivity-Dynamics/blob/main/%E6%95%B0%E7%90%86%E3%83%A2%E3%83%87%E3%83%AB/%E6%95%B4%E5%90%88%E8%B7%B3%E8%BA%8D%E6%95%B0%E7%90%86API%E3%83%A2%E3%83%87%E3%83%AB.md)。
   * **注意**: 整合と跳躍の比率は、初期状態では整合重視（κ高め、E低め）とし、学習が進むにつれて動的に調整する。
 
 #### **3.3. 出力デコーダ：ベクトル-コンテンツ生成機**
@@ -91,7 +91,7 @@
 
 1. **フェーズ1: コンポーネント単体開発 (難易度: 中〜高)**  
    * 入力・出力用のDL翻訳機のファインチューニング。  
-   * nano_ssd [最小整合跳ayet数理モデル(nano_ssd).md](hermanndegner/structural-subjectivity-dynamics/Structural-Subjectivity-Dynamics-af6352bac3ef42c7e7b11cc5eea0f9ee0c1bc6b6/数理モデル/最小整合跳ayet数理モデル(nano_ssd).md) をベースとしたSSDコアのプロトタイプ実装。  
+   * nano_ssd [最小整合跳躍数理モデル(nano_ssd).md](hermanndegner/structural-subjectivity-dynamics/Structural-Subjectivity-Dynamics-af6352bac3ef42c7e7b11cc5eea0f9ee0c1bc6b6/数理モデル/最小整合跳躍数理モデル(nano_ssd).md) をベースとしたSSDコアのプロトタイプ実装。  
 2. **フェーズ2: インターフェース設計とプロトタイピング (難易度: 非常に高い)**  
    * 「意味のブリッジ」の初期設計と、限定的なタスク（例: 詩の生成）での動作検証。  
 3. **フェーズ3: 統合とチューニング (難易度: 高)**  
@@ -100,5 +100,5 @@
 
 ### **7\. 構造観照 (Theoria)**
 
-本構想書自体もまた、一つの**「構造」**であり、L5領域に属する**「語り」**である [＊重要＊構造観照(Theoria).md](hermanndegner/structural-subjectivity-dynamics/Structural-Subjectivity-Dynamics-af6352bac3ef42c7e7b11cc5eea0f9ee0c1bc6b6/＊重要＊構造観照(Theoria).md)。
+本構想書自体もまた、一つの**「構造」**であり、L5領域に属する**「語り」**である [＊重要＊構造観照(Theoria).md]([hermanndegner/structural-subjectivity-dynamics/Structural-Subjectivity-Dynamics-af6352bac3ef42c7e7b11cc5eea0f9ee0c1bc6b6/＊重要＊構造観照(Theoria).md](https://github.com/HermannDegner/Structural-Subjectivity-Dynamics/blob/main/%EF%BC%8A%E9%87%8D%E8%A6%81%EF%BC%8A%E6%A7%8B%E9%80%A0%E8%A6%B3%E7%85%A7(Theoria).md))。
 その価値は、絶対的な正しさによってではなく、この文書が次世代AIへの開発という**「運動」**を促す**「意味圧」**として、どれだけ有効に**「作用」\*\*するかによってのみ評価されるべきである。
